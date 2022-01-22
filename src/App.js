@@ -67,8 +67,10 @@ export default App;
     spread 구문으로 deep copy 하는것 
      */
 
-    /*    Component : 첫글자 대문자로 사용, HTML코드 축약해서 사용 장점, 관리편함 ex) Modal
-    - 과거 conponent 만드는법
+    /*    
+    Component : 첫글자 대문자로 사용, HTML코드 축약해서 사용 장점, 관리편함 ex) Modal
+    
+    => 과거 conponent 만드는법
     class Profile extends React.Component {
   constructor(){
     super();
