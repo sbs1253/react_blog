@@ -9,6 +9,9 @@ function App() {
   let [modal,modal변경]=useState(false)
   let [누른제목, 누른제목변경] =useState(0)
   let [입력값, 입력값변경] = useState("")
+  function 입력받은값(e){
+    입력값변경(e.target.value)
+  }
 
   function 따봉증가(index){
     let 따봉복사 = [...따봉]
@@ -36,10 +39,14 @@ function App() {
           </div>)
         })
       }
+        <div className='publish'>
+          <input onChange={입력받은값}/>
+          <button onClick={()=>{ 글제목변경([...글제목,입력값])}}>저장</button>
+        </div>
+        
         <button onClick={제목바꾸기}>정렬</button>
         <button onClick={()=>{modal변경(!modal)}}>열고닫기</button>
           {modal===true?<Modal 글제목={글제목} 누른제목={누른제목}/>: null}
-        <input></input>
       </div>
   );
 }
@@ -58,6 +65,26 @@ export default App;
 
 /*   var newArray =[...글제목]
     spread 구문으로 deep copy 하는것 
-    
-    Component : 첫글자 대문자로 사용, HTML코드 축약해서 사용 장점, 관리편함 ex) Modal
      */
+
+    /*    Component : 첫글자 대문자로 사용, HTML코드 축약해서 사용 장점, 관리편함 ex) Modal
+    - 과거 conponent 만드는법
+    class Profile extends React.Component {
+  constructor(){
+    super();
+    this.state = { name : 'Kim', age : 30 }
+  }
+
+  changeName=()=>{
+    this.setState( {name : 'Park'} )
+  }
+
+  render(){
+    return (
+      <div>
+        <h3> 저는 { this.state.name } 입니다 </h3>
+        <button onClick={ this.changeName }> 버튼 </button>
+      </div>
+    )
+  }
+} */
